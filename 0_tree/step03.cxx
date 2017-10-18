@@ -19,7 +19,14 @@ struct Cell {
 };
 typedef std::vector<Cell> Cells;                              //!< Vector of cells
 
-void buildTree(Bodies & bodies, real_t * Xmin, real_t * X0, real_t R0, int begin, int end) {
+void buildTree(
+               Bodies & bodies,
+               real_t * Xmin,
+               real_t * X0,
+               real_t R0,
+               int begin,
+               int end)
+{
   // Count bodies in each quadrant
   int size[4] = {0};
   for (size_t b=begin; b<end; b++) {
@@ -34,7 +41,9 @@ void buildTree(Bodies & bodies, real_t * Xmin, real_t * X0, real_t R0, int begin
   // Sort bodies
   Bodies buffer = bodies;
   for (size_t b=begin; b<end; b++) {
-    int quadrant = (buffer[b].X[0] > X0[0]) + ((buffer[b].X[1] > X0[1]) << 1);
+    int quadrant =
+      (buffer[b].X[0] > X0[0]) +
+      ((buffer[b].X[1] > X0[1]) << 1);
     bodies[counter[quadrant]] = buffer[b];
     counter[quadrant]++;
   }

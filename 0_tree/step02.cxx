@@ -70,8 +70,11 @@ int main(int argc, char ** argv) {
   }
   // Check sorting
   for (size_t b=0; b<numBodies; b++) {
-    int quadrant = (buffer[b].X[0] > X0[0]) + ((buffer[b].X[1] > X0[1]) << 1);
-    std::cout << b << " " << quadrant << std::endl;
+    int quadrant =
+      (buffer[b].X[0] > X0[0]) +
+      ((buffer[b].X[1] > X0[1]) << 1);
+    std::cout << b << " " << quadrant
+              << std::endl;
   }
   return 0;
 }

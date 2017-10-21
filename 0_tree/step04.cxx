@@ -47,8 +47,12 @@ void buildTree(Bodies & bodies, Cells & cells, Cell * cell, real_t * Xmin, real_
     bodies[counter[quadrant]] = buffer[b];
     counter[quadrant]++;
   }
-  cells.resize(cells.size()+cell->NCHILD);
+  std::cout << "size: " << cells.size() << " NCHILD: " << cell->NCHILD  <<std::endl; 
+  cells.resize(cells.size() + cell->NCHILD);
+  std::cout << "back thing: " << cells.back().NBODY << std::endl;
   Cell * child = &cells.back() - cell->NCHILD + 1;
+  // if 4 children...
+  // cells = [cell, <child>, ..., ..., ...] 4 - 4 + 1 = 1
   cell->CHILD = child;
   // Calculate new center and radius
   real_t X[2], R;
@@ -61,7 +65,11 @@ void buildTree(Bodies & bodies, Cells & cells, Cell * cell, real_t * Xmin, real_
     std::cout << i << " " << X[0] << " " << X[1] << " " << R << " " << cell->NCHILD << std::endl;
     // Recursive call only if size[i] != 0
     if (size[i]) {
-      buildTree(bodies, cells, &child[c], Xmin, X, R, counter[i]-size[i], counter[i], ncrit);
+      std::cout << "c: " << c <<std::endl;
+      buildTree(
+                bodies, cells, &child[c],
+                Xmin, X, R, counter[i]-size[i],
+                counter[i], ncrit);
       c++;
     }
   }
@@ -104,6 +112,8 @@ int main(int argc, char ** argv) {
   cells[0].X[1] = X0[1];
   cells[0].R = R0;
   buildTree(bodies, cells, &cells[0], Xmin, X0, R0, 0, numBodies, ncrit);
-  std::cout << cells.size() << std::endl;
+  for (int i = 0; i < numBodies; ++i)
+    std::cout << cells[i].NBODY << std::endl;
+  std::cout << std::endl << cells.size() << std::endl;
   return 0;
 }

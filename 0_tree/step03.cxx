@@ -93,7 +93,8 @@ int main(int argc, char ** argv) {
   buildTree(bodies, Xmin, X0, R0, 0, numBodies);
 
   for (size_t b=0; b<numBodies; b++) {
-    int quadrant = ((bodies[b].X[0] - Xmin[0]) > X0[0]) + (((bodies[b].X[1] - Xmin[1]) > X0[1]) << 1);
+    int quadrant = ((bodies[b].X[0] - Xmin[0]) > X0[0]) +
+      (((bodies[b].X[1] - Xmin[1]) > X0[1]) << 1);
     std::cout << b << " " << quadrant << std::endl;
   }
   return 0;

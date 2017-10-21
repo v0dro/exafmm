@@ -12,7 +12,11 @@ def quadrant_of x0, body
 end
 
 class Cell
+  attr_accessor :nbody, :nchild, :body, :child, :center, :radius
 
+  def initialize
+    @center = [0.0,0.0]
+  end
 end
 
 class Body
@@ -23,13 +27,24 @@ class Body
   end
 end
 
-def build_tree bodies, x_min, x0, r0, start, finish
+def build_tree bodies, cells, cell, x_min, x0, r0, start, finish, ncrit
+  # Init cell parameters
+  cell.body = bodies[start]
+  cell.nbody = finish - start
+  cell.nchild = 0
+  2.times { |d| cell.center[d] = x0[d] }
+  cell.radius = r0
+
+  return if finish - start < ncrit
   # count bodies in each quadrant
   size = Array.new 4, 0
-  start.upto(finish) do |i|
+  start.upto(finish-1) do |i|
     quadrant = quadrant_of x0, bodies[i]
     size[quadrant] += 1
   end
+  cell.nchild = 0
+  # update number of children if there are elements in the quadrant
+  4.times { |i| cell.nchild += 1 if size[i] != 0 }
 
   # Calculate offsets
   counter = Array.new 4, start
@@ -37,10 +52,10 @@ def build_tree bodies, x_min, x0, r0, start, finish
     counter[i] = size[i-1] + counter[i-1]
   end
 
-  # sort bodies and store them in buffer
-  buffer = bodies
-  NUM_BODIES.times do |n|
-    quadrant = quadrant_of x0, bodies[n]
+  # sort bodies. buffer is temp
+  buffer = bodies.dup
+  start.upto(finish-1) do |n|
+    quadrant = quadrant_of x0, buffer[n]
     bodies[counter[quadrant]] = buffer[n]
     counter[quadrant] += 1
   end
@@ -57,8 +72,15 @@ def build_tree bodies, x_min, x0, r0, start, finish
   #   to the next to-be-sorted body from the bodies array in the 2nd line of the loop in
   #   in the next iteration.
 
+  # Below we increase the size of the cells array by the number of children that this particular
+  #   cell contains for accomodating the children.
+  cell.nchild.times { cells << Cell.new  }
+  cells_size = cells.size
+  child = cells[cells_size - cell.nchild]
   # Calculate new center and radius for the child cells.
+  cell.child = child
   center = [0.0, 0.0]
+  c = 0
   4.times do |i|
     radius = r0 / 2
     2.times do |d|
@@ -68,12 +90,16 @@ def build_tree bodies, x_min, x0, r0, start, finish
       center[d] = x0[d] + radius * (((i & 1 << d) >> d) * 2 - 1)
     end
 
-    if size[i] > 4
+    if size[i] != 0
       # We use counter[i] - size[i] as the second last arg because by this time the
       #   counter has reached the max index by now and size[i] contains the number of
       #   bodies in this qudrant. So their difference will give us the starting point of
       #   of the ith qudrant that is to be further subdivided.
-      build_tree bodies, x_min, center, radius, counter[i] - size[i], counter[i]
+      build_tree(
+        bodies, cells, cells[cells_size-cell.nchild+c],
+        x_min, center, radius,
+        counter[i] - size[i], counter[i], ncrit)
+      c += 1
     end
     # Since this function is being called recursively, it will keep further dividing
     #  each qudrant until there are less than 4 bodies inside the innermost qudrant.
@@ -81,6 +107,8 @@ def build_tree bodies, x_min, x0, r0, start, finish
     #  size of the quadrant.
   end
 end
+
+ncrit = 4
 
 # Init bodies
 bodies = NUM_BODIES.times.map do |n|
@@ -102,14 +130,13 @@ NUM_BODIES.times do |n|
 end
 
 # get center and radius
-
 x0 = [0.0, 0.0]
 x0[0] = (x_min[0] + x_max[0]) / 2
 x0[1] = (x_min[1] + x_max[1]) / 2
 # The radius is calculated like this because the boxes need to be square.
 #   We can just calcuate the longest side, and use that to calculate the
 #   radius by taking its half. You also need to account for rounding errors
-#   give some leeway for that. Therefore we use 0.50001 and not 0.5
+#   give some leeway for that. Therefore we use 0.50001 and not 0.5.
 r0 = [x_max[0] - x_min[0], x_max[1] - x_min[1]].max * 0.50001
 
 x_min[0] = x0[0] - r0
@@ -117,4 +144,9 @@ x_max[0] = x0[0] + r0
 x_min[1] = x0[1] - r0
 x_max[1] = x0[1] + r0
 
-build_tree bodies, x_min, x0, r0, 0, NUM_BODIES
+cells = [Cell.new]
+cells[0].center[0] = x0[0]
+cells[0].center[1] = x0[1]
+cells[0].radius = r0
+build_tree bodies, cells, cells[0],  x_min, x0, r0, 0, NUM_BODIES, ncrit
+

@@ -2,7 +2,7 @@
 include Math
 
 NUM_BODIES_PER_LEAF = 4
-NUM_BODIES = 100
+NUM_BODIES = 60
 
 # Calculate the qudrant of body w.r.t x0.
 def quadrant_of x0, body
@@ -20,22 +20,26 @@ class Cell
                 :radius,
                 :multipole,
                 :local,
-                :first_child_index, # useful only in cells array
-                :first_body_index   # useful only in body array
+                :first_child_index,  # useful only in cells array
+                :first_body_index,   # useful only in body array
+                :index               # index of cell is cells array
 
   def initialize
     @center = [0.0,0.0]
     @multipole = 0.0
     @local = 0.0
+    @nchild = 0
   end
 end
 
 class Body
   attr_reader :x, :q
+  attr_accessor :p
 
   def initialize a, b
     @x = [a, b]
     @q = 1.0
+    @p = 0.0
   end
 end
 
@@ -138,6 +142,54 @@ def m2m cells, bodies, parent_cell_index
   end
 end
 
+def m2l cells, i, j
+  cells[i].local += cells[j].multipole
+end
+
+def p2p cells, bodies, i, j
+  cells[i].first_body_index.upto(
+    cells[i].first_body_index + cells[i].nbody - 1) do |ibody|
+
+    cells[j].first_body_index.upto(
+      cells[j].first_body_index + cells[j].nbody - 1) do |jbody|
+
+      bodies[ibody].p += bodies[jbody].q
+    end
+  end
+end
+
+def l2l cells, index
+  cell = cells[index]
+  if cell.nchild != 0
+    cell.first_child_index.upto(
+      cell.first_child_index + cell.nchild  - 1) do |i|
+
+      cells[i].local += cell.local
+    end
+  end
+end
+
+def l2p cells, bodies, index
+  cell = cells[index]
+  cell.first_body_index.upto(
+    cell.first_body_index + cell.nbody - 1) do |ibody|
+    bodies[ibody].p += cell.local
+  end
+end
+
+def downward_pass cells, bodies, parent_index
+  l2l(cells, parent_index)
+  cell = cells[parent_index]
+  if cell.nchild == 0
+    l2p(cells, bodies, parent_index)
+  else
+    cell.first_child_index.upto(
+      cell.first_child_index + cell.nchild - 1) do |child_index|
+      downward_pass cells, bodies, child_index
+    end
+  end
+end
+
 # parent_cell_index - identifies the index of parent in the cells array.
 def upward_pass cells, bodies, parent_cell_index
   cell = cells[parent_cell_index]
@@ -152,6 +204,35 @@ def upward_pass cells, bodies, parent_cell_index
     p2m(cells, bodies, parent_cell_index)
   else
     m2m(cells, bodies,parent_cell_index)
+  end
+end
+
+def horizontal_pass cells, bodies, i, j
+  icell = cells[i]
+  jcell = cells[j]
+  dx = icell.center[0] - jcell.center[0]
+  dy = icell.center[1] - jcell.center[1]
+  radius = sqrt(dx * dx + dy * dy)
+
+  # if cells are far enough calculate the m2l
+  if radius > icell.radius + jcell.radius
+    m2l(cells, i, j)
+  elsif icell.nchild == 0 && jcell.nchild == 0
+    puts "icell: #{icell.index}"
+    p2p(cells, bodies, i, j)
+  # icell is a larger (parent) cell.
+  elsif icell.radius > jcell.radius
+    icell.first_child_index.upto(
+      icell.first_child_index + icell.nchild - 1) do |child_index|
+      horizontal_pass cells, bodies, child_index, j
+    end
+  else
+    if jcell.child
+      jcell.first_child_index.upto(
+        jcell.first_child_index + jcell.nchild - 1) do |child_index|
+        horizontal_pass cells, bodies, i, child_index
+      end
+    end
   end
 end
 
@@ -197,6 +278,18 @@ cells[0].center[1] = x0[1]
 cells[0].radius = r0
 
 build_tree bodies, cells, cells[0],  x_min, x0, r0, 0, NUM_BODIES, ncrit
+
+# Going from 'root' of the tree to the leaves for calculating multipoles.
 upward_pass cells, bodies, 0
+cells.each_with_index { |c, i| c.index = i }
+
+# Iterate over children and neighbours to find out m2l for non-leaf cells
+# and p2p for bodies within the same cell.
+horizontal_pass cells, bodies, 0, 0
+downward_pass cells, bodies, 0
+
+# why does p turn out to be even and 60 for this? It wasn't the case
+#   for the previous example in the grid thing.
 
 puts "multipoles: #{cells.map { |c| c.multipole }}"
+puts "p: #{bodies.map { |b| b.p }}"

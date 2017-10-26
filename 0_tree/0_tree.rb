@@ -1,8 +1,9 @@
 # ExaFMM 0_tree code
+require 'gnuplotrb'
 include Math
 
 NUM_BODIES_PER_LEAF = 4
-NUM_BODIES = 100
+NUM_BODIES = 1000
 
 # Calculate the qudrant of body w.r.t x0.
 def quadrant_of x0, body
@@ -87,6 +88,7 @@ def build_tree bodies, cells, cell, x_min, x0, r0, start, finish, ncrit
       # Change the quadrant index into a 2D index for the X and Y dimension by
       #   bit shifting and then deinterleaving the bits. Then use this for calculating
       #   center of the child cells.
+      puts "hi: #{i} #{d} #{(((i & 1 << d) >> d) * 2 - 1)}"
       center[d] = x0[d] + radius * (((i & 1 << d) >> d) * 2 - 1)
     end
 
@@ -112,7 +114,12 @@ ncrit = 4
 
 # Init bodies
 bodies = NUM_BODIES.times.map do |n|
-  Body.new(rand, rand)
+  x = (rand*2 - 1)
+  y = (rand*2 - 1)
+  r = sqrt(x*x + y*y)
+  x = x/r
+  y = y/r
+  Body.new(x,y)
 end
 
 # Build tree
@@ -150,3 +157,33 @@ cells[0].center[1] = x0[1]
 cells[0].radius = r0
 build_tree bodies, cells, cells[0],  x_min, x0, r0, 0, NUM_BODIES, ncrit
 
+x = bodies.map{ |b| b.x[0] }
+y = bodies.map { |b| b.x[1] }
+p = [x,y]
+
+arr = []
+cells.each do |cell|
+  c0 = cell.center[0]
+  c1 = cell.center[1]
+  radius = cell.radius
+
+  cell1x = c0 + radius
+  cell1y = c1 + radius
+
+  cell2x = c0 + radius
+  cell2y = c1 - radius
+
+  cell3x = c0 - radius
+  cell3y = c1 - radius
+
+  cell4x = c0 - radius
+  cell4y = c1 + radius
+
+  cellx = [cell1x, cell2x, cell3x, cell4x, cell1x]
+  celly = [cell1y, cell2y, cell3y, cell4y, cell1y]
+
+  arr << [[cellx.dup, celly.dup], with: 'lines']
+end
+
+
+GnuplotRB::Plot.new([p, with: 'dots'], *arr, ratio: 'square', key: 'off').to_epslatex('hello.svg')

@@ -4,7 +4,7 @@
 using namespace exafmm;
 
 int main(int argc, char ** argv) {
-  P = atoi(argv[1]);
+  P = 10;
   initKernel();
 
   //! P2M
@@ -20,6 +20,7 @@ int main(int argc, char ** argv) {
   Cj->BODY = &jbodies[0];
   Cj->NBODY = jbodies.size();
   Cj->M.resize(NTERM, 0.0);
+  std::cout << "P2M\n";
   P2M(Cj);
 
   //! M2M
@@ -31,6 +32,7 @@ int main(int argc, char ** argv) {
   CJ->X[2] = 0;
   CJ->R = 2;
   CJ->M.resize(NTERM, 0.0);
+  std::cout << "M2M\n";
   M2M(CJ);
 
   //! M2L

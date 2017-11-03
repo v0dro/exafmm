@@ -16,11 +16,12 @@ int main(int argc, char ** argv) {
   Cj->BODY = &jbodies[0];
   Cj->NBODY = jbodies.size();
   Cj->M.resize(P, 0.0);
+  std::cout << "P2M\n";
   P2M(Cj);
 
   // M2M
   Cell * CJ = &cells[1];
-  CJ->CHILD = Cj;
+  CJ->CHILD = Cj;               // should be Cj = CJ?
   CJ->NCHILD = 1;
   CJ->X[0] = 4;
   CJ->X[1] = 0;

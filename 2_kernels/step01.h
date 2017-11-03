@@ -1,3 +1,4 @@
+#include <iostream>
 #ifndef kernel_h
 #define kernel_h
 #include "exafmm2d.h"

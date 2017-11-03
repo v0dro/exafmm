@@ -1,3 +1,4 @@
+#include <iostream>
 #ifndef kernel_h
 #define kernel_h
 #include "exafmm.h"
@@ -37,33 +38,41 @@ namespace exafmm {
     real_t fact = 1;
     real_t pn = 1;
     real_t rhom = 1;
+    // The last (exponential) term in the mYn sph. harmonics equation. This is the term that depends on the phi or the longitudinal angle.
     complex_t ei = std::exp(I * beta);
     complex_t eim = 1.0;
-    for (int m=0; m<P; m++) {
-      real_t p = pn;
+    // m -> order of spherical harmonic / legendre polynomial
+    for (int m=0; m<P; m++) { // P -> order of expansions
+      real_t p = pn; // p -> mP(n+1) value of Legendre recurrence
+
       int npn = m * m + 2 * m;
       int nmn = m * m;
+
       Ynm[npn] = rhom * p * eim;
       Ynm[nmn] = std::conj(Ynm[npn]);
-      real_t p1 = p;
-      p = x * (2 * m + 1) * p1;
+      real_t p1 = p; // p1 -> mPn value of Legendre recurrence
+      p = x * (2 * m + 1) * p1; // how is it decided that p should be initialized to this value?
       YnmTheta[npn] = rhom * (p - (m + 1) * x * p1) * invY * eim;
+
       rhom *= rho;
       real_t rhon = rhom;
-      for (int n=m+1; n<P; n++) {
+      // it goes from m+1 to P because it a way of optimizing the summation terms. This is also the reason why 'm' occurs in the outer loop.
+      for (int n=m+1; n<P; n++) {      // n -> degree of spherical harmonic
         int npm = n * n + n + m;
         int nmm = n * n + n - m;
         rhon /= -(n + m);
         Ynm[npm] = rhon * p * eim;
         Ynm[nmm] = std::conj(Ynm[npm]);
-        real_t p2 = p1;
+        real_t p2 = p1; // p2 -> mP(n-1) value of Legendre recurrence
         p1 = p;
-        p = (x * (2 * n + 1) * p1 - (n + m) * p2) / (n - m + 1);
+        p = (x * (2 * n + 1) * p1 - (n + m) * p2) / (n - m + 1);         // this is that recurrence relation
         YnmTheta[npm] = rhon * ((n - m + 1) * p - (n + 1) * x * p1) * invY * eim;
+        // see the Multipole expansion equation. You'll see that rho is raised to a power n. This is needs to be
+        //   done so that it will be raised fully by the time the entire summation is done.
         rhon *= rho;
       }
       rhom /= -(2 * m + 2) * (2 * m + 1);
-      pn = -pn * fact * y;
+      pn = -pn * fact * y;  // pn -> Eq (8) in the prof. yokota paper. mPm. 
       fact += 2;
       eim *= ei;
     }
@@ -130,7 +139,12 @@ namespace exafmm {
   }
 
   void P2M(Cell * C) {
-    complex_t Ynm[P*P], YnmTheta[P*P];
+    // The number of harmonics are P*P because one instance of the spherical harmonic function gives the harmonic at a point
+    //   Theta_i and Phi_j. We typically consider the harmonics at a number of points of number N_theta * N_phi = N^2 if we take
+    //   equal number of samples for both points.
+
+    // Since the total number of spherical harmonics in the Spherical harmonics equation is l^2 (for the sum), we can say that l_max ~ N.
+    complex_t Ynm[P*P], YnmTheta[P*P]; // spherical harmonics
     for (Body * B=C->BODY; B!=C->BODY+C->NBODY; B++) {
       vec3 dX = B->X - C->X;
       real_t rho, alpha, beta;
@@ -143,6 +157,10 @@ namespace exafmm {
           C->M[nms] += B->q * Ynm[nm];
         }
       }
+    }
+    std::cout << "hello world!" << std::endl;
+    for (int i = 0; i < P*P; ++i) {
+      std::cout << "ynm: " << Ynm[i] << " i: " << i << std::endl;
     }
   }
 

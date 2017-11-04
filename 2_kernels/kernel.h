@@ -38,28 +38,36 @@ namespace exafmm {
     real_t fact = 1;
     real_t pn = 1;
     real_t rhom = 1;
-    // The last (exponential) term in the mYn sph. harmonics equation. This is the term that depends on the phi or the longitudinal angle.
+    // The last (exponential) term in the mYn sph. harmonics equation.
+    //  This is the term that depends on the phi or the longitudinal angle.
     complex_t ei = std::exp(I * beta);
     complex_t eim = 1.0;
     // m -> order of spherical harmonic / legendre polynomial
+    // If you look at the spherical harmonics equation, it has two summations terms:
+    //   sigma_{m=-n_max, n_max} followed by sigma_{n=|m|, n_max}. The below nested loops emulate that behaviour.
+    //   However, I don't understand why m doesn't go from -P to P?
+    //   A -> This is so because the complex number Ynm is symmetrical about the 0th index. So that symmetry can be exploited
+    //        and used for reducing the looping.
     for (int m=0; m<P; m++) { // P -> order of expansions
       real_t p = pn; // p -> mP(n+1) value of Legendre recurrence
 
-      int npn = m * m + 2 * m;
-      int nmn = m * m;
+      int npn = m * m + 2 * m; // This is Yn n
+      int nmn = m * m;         // This is Yn -n
 
       Ynm[npn] = rhom * p * eim;
       Ynm[nmn] = std::conj(Ynm[npn]);
       real_t p1 = p; // p1 -> mPn value of Legendre recurrence
       p = x * (2 * m + 1) * p1; // how is it decided that p should be initialized to this value?
       YnmTheta[npn] = rhom * (p - (m + 1) * x * p1) * invY * eim;
-
       rhom *= rho;
       real_t rhon = rhom;
-      // it goes from m+1 to P because it a way of optimizing the summation terms. This is also the reason why 'm' occurs in the outer loop.
+      // It goes from m+1 to P because it a way of optimizing the summation terms.
+      //  This is also the reason why 'm' occurs in the outer loop.
       for (int n=m+1; n<P; n++) {      // n -> degree of spherical harmonic
-        int npm = n * n + n + m;
-        int nmm = n * n + n - m;
+        int npm = n * n + n + m; // This is Yn m
+        int nmm = n * n + n - m; // This is Yn -m
+        /* std::cout << "\n\nvalues-> m: " << m << " n: " << n << std::endl; */
+        /* std::cout << "indices->\n" << "npn: " << npn << "\nnmn: " << nmn << "\nnpm: " << npm << "\nnmm: " << nmm << std::endl; */
         rhon /= -(n + m);
         Ynm[npm] = rhon * p * eim;
         Ynm[nmm] = std::conj(Ynm[npm]);
@@ -72,7 +80,7 @@ namespace exafmm {
         rhon *= rho;
       }
       rhom /= -(2 * m + 2) * (2 * m + 1);
-      pn = -pn * fact * y;  // pn -> Eq (8) in the prof. yokota paper. mPm. 
+      pn = -pn * fact * y;  // pn -> Eq (8) in the prof. yokota paper. mPm.
       fact += 2;
       eim *= ei;
     }

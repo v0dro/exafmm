@@ -1,0 +1,1588 @@
+values-> m: 0 n: 1
+indices->
+npn: 0
+nmn: 0
+npm: 2
+nmm: 2
+
+values-> m: 1 n: 2
+indices->
+npn: 3
+nmn: 1
+npm: 7
+nmm: 5
+
+values-> m: 1 n: 3 :-> P_{1,4}
+indices->
+npn: 3
+nmn: 1
+npm: 13  : p used here is P_{1,4}
+nmm: 11
+
+values-> m: 1 n: 4
+indices->
+npn: 3
+nmn: 1
+npm: 21
+nmm: 19
+
+values-> m: 2 n: 3
+indices->
+npn: 8
+nmn: 4
+npm: 14
+nmm: 10
+
+values-> m: 2 n: 4
+indices->
+npn: 8
+nmn: 4
+npm: 22
+nmm: 18
+
+values-> m: 3 n: 4
+indices->
+npn: 15
+nmn: 9
+npm: 23
+nmm: 17
+
+
+
+
+
+values-> m: 0 n: 2
+indices->
+npn: 0
+nmn: 0
+npm: 6
+nmm: 6
+
+
+values-> m: 0 n: 3
+indices->
+npn: 0
+nmn: 0
+npm: 12
+nmm: 12
+
+
+values-> m: 0 n: 4
+indices->
+npn: 0
+nmn: 0
+npm: 20
+nmm: 20
+
+
+values-> m: 0 n: 5
+indices->
+npn: 0
+nmn: 0
+npm: 30
+nmm: 30
+
+
+values-> m: 0 n: 6
+indices->
+npn: 0
+nmn: 0
+npm: 42
+nmm: 42
+
+
+values-> m: 0 n: 7
+indices->
+npn: 0
+nmn: 0
+npm: 56
+nmm: 56
+
+
+values-> m: 0 n: 8
+indices->
+npn: 0
+nmn: 0
+npm: 72
+nmm: 72
+
+
+values-> m: 0 n: 9
+indices->
+npn: 0
+nmn: 0
+npm: 90
+nmm: 90
+
+
+values-> m: 1 n: 2
+indices->
+npn: 3
+nmn: 1
+npm: 7
+nmm: 5
+
+
+values-> m: 1 n: 3
+indices->
+npn: 3
+nmn: 1
+npm: 13
+nmm: 11
+
+
+values-> m: 1 n: 4
+indices->
+npn: 3
+nmn: 1
+npm: 21
+nmm: 19
+
+
+values-> m: 1 n: 5
+indices->
+npn: 3
+nmn: 1
+npm: 31
+nmm: 29
+
+
+values-> m: 1 n: 6
+indices->
+npn: 3
+nmn: 1
+npm: 43
+nmm: 41
+
+
+values-> m: 1 n: 7
+indices->
+npn: 3
+nmn: 1
+npm: 57
+nmm: 55
+
+
+values-> m: 1 n: 8
+indices->
+npn: 3
+nmn: 1
+npm: 73
+nmm: 71
+
+
+values-> m: 1 n: 9
+indices->
+npn: 3
+nmn: 1
+npm: 91
+nmm: 89
+
+
+values-> m: 2 n: 3
+indices->
+npn: 8
+nmn: 4
+npm: 14
+nmm: 10
+
+
+values-> m: 2 n: 4
+indices->
+npn: 8
+nmn: 4
+npm: 22
+nmm: 18
+
+
+values-> m: 2 n: 5
+indices->
+npn: 8
+nmn: 4
+npm: 32
+nmm: 28
+
+
+values-> m: 2 n: 6
+indices->
+npn: 8
+nmn: 4
+npm: 44
+nmm: 40
+
+
+values-> m: 2 n: 7
+indices->
+npn: 8
+nmn: 4
+npm: 58
+nmm: 54
+
+
+values-> m: 2 n: 8
+indices->
+npn: 8
+nmn: 4
+npm: 74
+nmm: 70
+
+
+values-> m: 2 n: 9
+indices->
+npn: 8
+nmn: 4
+npm: 92
+nmm: 88
+
+
+values-> m: 3 n: 4
+indices->
+npn: 15
+nmn: 9
+npm: 23
+nmm: 17
+
+
+values-> m: 3 n: 5
+indices->
+npn: 15
+nmn: 9
+npm: 33
+nmm: 27
+
+
+values-> m: 3 n: 6
+indices->
+npn: 15
+nmn: 9
+npm: 45
+nmm: 39
+
+
+values-> m: 3 n: 7
+indices->
+npn: 15
+nmn: 9
+npm: 59
+nmm: 53
+
+
+values-> m: 3 n: 8
+indices->
+npn: 15
+nmn: 9
+npm: 75
+nmm: 69
+
+
+values-> m: 3 n: 9
+indices->
+npn: 15
+nmn: 9
+npm: 93
+nmm: 87
+
+
+values-> m: 4 n: 5
+indices->
+npn: 24
+nmn: 16
+npm: 34
+nmm: 26
+
+
+values-> m: 4 n: 6
+indices->
+npn: 24
+nmn: 16
+npm: 46
+nmm: 38
+
+
+values-> m: 4 n: 7
+indices->
+npn: 24
+nmn: 16
+npm: 60
+nmm: 52
+
+
+values-> m: 4 n: 8
+indices->
+npn: 24
+nmn: 16
+npm: 76
+nmm: 68
+
+
+values-> m: 4 n: 9
+indices->
+npn: 24
+nmn: 16
+npm: 94
+nmm: 86
+
+
+values-> m: 5 n: 6
+indices->
+npn: 35
+nmn: 25
+npm: 47
+nmm: 37
+
+
+values-> m: 5 n: 7
+indices->
+npn: 35
+nmn: 25
+npm: 61
+nmm: 51
+
+
+values-> m: 5 n: 8
+indices->
+npn: 35
+nmn: 25
+npm: 77
+nmm: 67
+
+
+values-> m: 5 n: 9
+indices->
+npn: 35
+nmn: 25
+npm: 95
+nmm: 85
+
+
+values-> m: 6 n: 7
+indices->
+npn: 48
+nmn: 36
+npm: 62
+nmm: 50
+
+
+values-> m: 6 n: 8
+indices->
+npn: 48
+nmn: 36
+npm: 78
+nmm: 66
+
+
+values-> m: 6 n: 9
+indices->
+npn: 48
+nmn: 36
+npm: 96
+nmm: 84
+
+
+values-> m: 7 n: 8
+indices->
+npn: 63
+nmn: 49
+npm: 79
+nmm: 65
+
+
+values-> m: 7 n: 9
+indices->
+npn: 63
+nmn: 49
+npm: 97
+nmm: 83
+
+
+values-> m: 8 n: 9
+indices->
+npn: 80
+nmn: 64
+npm: 98
+nmm: 82
+hello world!
+ynm: (1,-0) i: 0
+ynm: (-0.5,0.5) i: 1
+ynm: (-1,0) i: 2
+ynm: (-0.5,-0.5) i: 3
+ynm: (-5.55112e-17,-0.25) i: 4
+ynm: (0.5,-0.5) i: 5
+ynm: (1.66533e-16,-0) i: 6
+ynm: (0.5,0.5) i: 7
+ynm: (-5.55112e-17,0.25) i: 8
+ynm: (0.0416667,0.0416667) i: 9
+ynm: (5.55112e-17,0.25) i: 10
+ynm: (-0.125,0.125) i: 11
+ynm: (0.333333,-0) i: 12
+ynm: (-0.125,-0.125) i: 13
+ynm: (5.55112e-17,-0.25) i: 14
+ynm: (0.0416667,-0.0416667) i: 15
+ynm: (-0.0104167,2.89121e-18) i: 16
+ynm: (-0.0416667,-0.0416667) i: 17
+ynm: (-1.85037e-17,-0.0833333) i: 18
+ynm: (-0.0416667,0.0416667) i: 19
+ynm: (-0.145833,0) i: 20
+ynm: (-0.0416667,-0.0416667) i: 21
+ynm: (-1.85037e-17,0.0833333) i: 22
+ynm: (-0.0416667,0.0416667) i: 23
+ynm: (-0.0104167,-2.89121e-18) i: 24
+ynm: (0.00104167,-0.00104167) i: 25
+ynm: (0.0104167,-2.89121e-18) i: 26
+ynm: (0.015625,0.015625) i: 27
+ynm: (3.25321e-33,1.46511e-17) i: 28
+ynm: (0.03125,-0.03125) i: 29
+ynm: (0.0125,-0) i: 30
+ynm: (0.03125,0.03125) i: 31
+ynm: (3.25321e-33,-1.46511e-17) i: 32
+ynm: (0.015625,-0.015625) i: 33
+ynm: (0.0104167,2.89121e-18) i: 34
+ynm: (0.00104167,0.00104167) i: 35
+ynm: (7.70988e-20,0.000173611) i: 36
+ynm: (-0.00104167,0.00104167) i: 37
+ynm: (-0.00416667,1.15648e-18) i: 38
+ynm: (-0.00173611,-0.00173611) i: 39
+ynm: (1.73472e-18,0.0078125) i: 40
+ynm: (-0.00625,0.00625) i: 41
+ynm: (0.00833333,-0) i: 42
+ynm: (-0.00625,-0.00625) i: 43
+ynm: (1.73472e-18,-0.0078125) i: 44
+ynm: (-0.00173611,0.00173611) i: 45
+ynm: (-0.00416667,-1.15648e-18) i: 46
+ynm: (-0.00104167,-0.00104167) i: 47
+ynm: (7.70988e-20,-0.000173611) i: 48
+ynm: (-1.24008e-05,-1.24008e-05) i: 49
+ynm: (-7.70988e-20,-0.000173611) i: 50
+ynm: (0.000434028,-0.000434028) i: 51
+ynm: (0.000694444,-1.92747e-19) i: 52
+ynm: (-0.000607639,-0.000607639) i: 53
+ynm: (-5.01142e-19,-0.00225694) i: 54
+ynm: (-0.000260417,0.000260417) i: 55
+ynm: (-0.00297619,0) i: 56
+ynm: (-0.000260417,-0.000260417) i: 57
+ynm: (-5.01142e-19,0.00225694) i: 58
+ynm: (-0.000607639,0.000607639) i: 59
+ynm: (0.000694444,1.92747e-19) i: 60
+ynm: (0.000434028,0.000434028) i: 61
+ynm: (-7.70988e-20,0.000173611) i: 62
+ynm: (-1.24008e-05,1.24008e-05) i: 63
+ynm: (1.5501e-06,-1.03257e-21) i: 64
+ynm: (1.24008e-05,1.24008e-05) i: 65
+ynm: (3.30424e-20,7.44048e-05) i: 66
+ynm: (-8.68056e-05,8.68056e-05) i: 67
+ynm: (4.34028e-05,-1.20467e-20) i: 68
+ynm: (0.000260417,0.000260417) i: 69
+ynm: (3.85494e-20,0.000173611) i: 70
+ynm: (0.000359623,-0.000359623) i: 71
+ynm: (0.00030692,-0) i: 72
+ynm: (0.000359623,0.000359623) i: 73
+ynm: (3.85494e-20,-0.000173611) i: 74
+ynm: (0.000260417,-0.000260417) i: 75
+ynm: (4.34028e-05,1.20467e-20) i: 76
+ynm: (-8.68056e-05,-8.68056e-05) i: 77
+ynm: (3.30424e-20,-7.44048e-05) i: 78
+ynm: (1.24008e-05,-1.24008e-05) i: 79
+ynm: (1.5501e-06,1.03257e-21) i: 80
+ynm: (-8.61166e-08,8.61166e-08) i: 81
+ynm: (-1.5501e-06,1.03257e-21) i: 82
+ynm: (-5.42535e-06,-5.42535e-06) i: 83
+ynm: (-7.34274e-21,-1.65344e-05) i: 84
+ynm: (3.1002e-06,-3.1002e-06) i: 85
+ynm: (-4.34028e-05,1.20467e-20) i: 86
+ynm: (-3.6169e-05,-3.6169e-05) i: 87
+ynm: (1.10141e-20,4.96032e-05) i: 88
+ynm: (-6.66543e-05,6.66543e-05) i: 89
+ynm: (4.5814e-05,-0) i: 90
+ynm: (-6.66543e-05,-6.66543e-05) i: 91
+ynm: (1.10141e-20,-4.96032e-05) i: 92
+ynm: (-3.6169e-05,3.6169e-05) i: 93
+ynm: (-4.34028e-05,-1.20467e-20) i: 94
+ynm: (3.1002e-06,3.1002e-06) i: 95
+ynm: (-7.34274e-21,1.65344e-05) i: 96
+ynm: (-5.42535e-06,5.42535e-06) i: 97
+ynm: (-1.5501e-06,-1.03257e-21) i: 98
+ynm: (-8.61166e-08,-8.61166e-08) i: 99
+M2M
+
+
+values-> m: 0 n: 1
+indices->
+npn: 0
+nmn: 0
+npm: 2
+nmm: 2
+
+
+values-> m: 0 n: 2
+indices->
+npn: 0
+nmn: 0
+npm: 6
+nmm: 6
+
+
+values-> m: 0 n: 3
+indices->
+npn: 0
+nmn: 0
+npm: 12
+nmm: 12
+
+
+values-> m: 0 n: 4
+indices->
+npn: 0
+nmn: 0
+npm: 20
+nmm: 20
+
+
+values-> m: 0 n: 5
+indices->
+npn: 0
+nmn: 0
+npm: 30
+nmm: 30
+
+
+values-> m: 0 n: 6
+indices->
+npn: 0
+nmn: 0
+npm: 42
+nmm: 42
+
+
+values-> m: 0 n: 7
+indices->
+npn: 0
+nmn: 0
+npm: 56
+nmm: 56
+
+
+values-> m: 0 n: 8
+indices->
+npn: 0
+nmn: 0
+npm: 72
+nmm: 72
+
+
+values-> m: 0 n: 9
+indices->
+npn: 0
+nmn: 0
+npm: 90
+nmm: 90
+
+
+values-> m: 1 n: 2
+indices->
+npn: 3
+nmn: 1
+npm: 7
+nmm: 5
+
+
+values-> m: 1 n: 3
+indices->
+npn: 3
+nmn: 1
+npm: 13
+nmm: 11
+
+
+values-> m: 1 n: 4
+indices->
+npn: 3
+nmn: 1
+npm: 21
+nmm: 19
+
+
+values-> m: 1 n: 5
+indices->
+npn: 3
+nmn: 1
+npm: 31
+nmm: 29
+
+
+values-> m: 1 n: 6
+indices->
+npn: 3
+nmn: 1
+npm: 43
+nmm: 41
+
+
+values-> m: 1 n: 7
+indices->
+npn: 3
+nmn: 1
+npm: 57
+nmm: 55
+
+
+values-> m: 1 n: 8
+indices->
+npn: 3
+nmn: 1
+npm: 73
+nmm: 71
+
+
+values-> m: 1 n: 9
+indices->
+npn: 3
+nmn: 1
+npm: 91
+nmm: 89
+
+
+values-> m: 2 n: 3
+indices->
+npn: 8
+nmn: 4
+npm: 14
+nmm: 10
+
+
+values-> m: 2 n: 4
+indices->
+npn: 8
+nmn: 4
+npm: 22
+nmm: 18
+
+
+values-> m: 2 n: 5
+indices->
+npn: 8
+nmn: 4
+npm: 32
+nmm: 28
+
+
+values-> m: 2 n: 6
+indices->
+npn: 8
+nmn: 4
+npm: 44
+nmm: 40
+
+
+values-> m: 2 n: 7
+indices->
+npn: 8
+nmn: 4
+npm: 58
+nmm: 54
+
+
+values-> m: 2 n: 8
+indices->
+npn: 8
+nmn: 4
+npm: 74
+nmm: 70
+
+
+values-> m: 2 n: 9
+indices->
+npn: 8
+nmn: 4
+npm: 92
+nmm: 88
+
+
+values-> m: 3 n: 4
+indices->
+npn: 15
+nmn: 9
+npm: 23
+nmm: 17
+
+
+values-> m: 3 n: 5
+indices->
+npn: 15
+nmn: 9
+npm: 33
+nmm: 27
+
+
+values-> m: 3 n: 6
+indices->
+npn: 15
+nmn: 9
+npm: 45
+nmm: 39
+
+
+values-> m: 3 n: 7
+indices->
+npn: 15
+nmn: 9
+npm: 59
+nmm: 53
+
+
+values-> m: 3 n: 8
+indices->
+npn: 15
+nmn: 9
+npm: 75
+nmm: 69
+
+
+values-> m: 3 n: 9
+indices->
+npn: 15
+nmn: 9
+npm: 93
+nmm: 87
+
+
+values-> m: 4 n: 5
+indices->
+npn: 24
+nmn: 16
+npm: 34
+nmm: 26
+
+
+values-> m: 4 n: 6
+indices->
+npn: 24
+nmn: 16
+npm: 46
+nmm: 38
+
+
+values-> m: 4 n: 7
+indices->
+npn: 24
+nmn: 16
+npm: 60
+nmm: 52
+
+
+values-> m: 4 n: 8
+indices->
+npn: 24
+nmn: 16
+npm: 76
+nmm: 68
+
+
+values-> m: 4 n: 9
+indices->
+npn: 24
+nmn: 16
+npm: 94
+nmm: 86
+
+
+values-> m: 5 n: 6
+indices->
+npn: 35
+nmn: 25
+npm: 47
+nmm: 37
+
+
+values-> m: 5 n: 7
+indices->
+npn: 35
+nmn: 25
+npm: 61
+nmm: 51
+
+
+values-> m: 5 n: 8
+indices->
+npn: 35
+nmn: 25
+npm: 77
+nmm: 67
+
+
+values-> m: 5 n: 9
+indices->
+npn: 35
+nmn: 25
+npm: 95
+nmm: 85
+
+
+values-> m: 6 n: 7
+indices->
+npn: 48
+nmn: 36
+npm: 62
+nmm: 50
+
+
+values-> m: 6 n: 8
+indices->
+npn: 48
+nmn: 36
+npm: 78
+nmm: 66
+
+
+values-> m: 6 n: 9
+indices->
+npn: 48
+nmn: 36
+npm: 96
+nmm: 84
+
+
+values-> m: 7 n: 8
+indices->
+npn: 63
+nmn: 49
+npm: 79
+nmm: 65
+
+
+values-> m: 7 n: 9
+indices->
+npn: 63
+nmn: 49
+npm: 97
+nmm: 83
+
+
+values-> m: 8 n: 9
+indices->
+npn: 80
+nmn: 64
+npm: 98
+nmm: 82
+
+
+values-> m: 0 n: 1
+indices->
+npn: 0
+nmn: 0
+npm: 2
+nmm: 2
+
+
+values-> m: 0 n: 2
+indices->
+npn: 0
+nmn: 0
+npm: 6
+nmm: 6
+
+
+values-> m: 0 n: 3
+indices->
+npn: 0
+nmn: 0
+npm: 12
+nmm: 12
+
+
+values-> m: 0 n: 4
+indices->
+npn: 0
+nmn: 0
+npm: 20
+nmm: 20
+
+
+values-> m: 0 n: 5
+indices->
+npn: 0
+nmn: 0
+npm: 30
+nmm: 30
+
+
+values-> m: 0 n: 6
+indices->
+npn: 0
+nmn: 0
+npm: 42
+nmm: 42
+
+
+values-> m: 0 n: 7
+indices->
+npn: 0
+nmn: 0
+npm: 56
+nmm: 56
+
+
+values-> m: 0 n: 8
+indices->
+npn: 0
+nmn: 0
+npm: 72
+nmm: 72
+
+
+values-> m: 0 n: 9
+indices->
+npn: 0
+nmn: 0
+npm: 90
+nmm: 90
+
+
+values-> m: 1 n: 2
+indices->
+npn: 3
+nmn: 1
+npm: 7
+nmm: 5
+
+
+values-> m: 1 n: 3
+indices->
+npn: 3
+nmn: 1
+npm: 13
+nmm: 11
+
+
+values-> m: 1 n: 4
+indices->
+npn: 3
+nmn: 1
+npm: 21
+nmm: 19
+
+
+values-> m: 1 n: 5
+indices->
+npn: 3
+nmn: 1
+npm: 31
+nmm: 29
+
+
+values-> m: 1 n: 6
+indices->
+npn: 3
+nmn: 1
+npm: 43
+nmm: 41
+
+
+values-> m: 1 n: 7
+indices->
+npn: 3
+nmn: 1
+npm: 57
+nmm: 55
+
+
+values-> m: 1 n: 8
+indices->
+npn: 3
+nmn: 1
+npm: 73
+nmm: 71
+
+
+values-> m: 1 n: 9
+indices->
+npn: 3
+nmn: 1
+npm: 91
+nmm: 89
+
+
+values-> m: 2 n: 3
+indices->
+npn: 8
+nmn: 4
+npm: 14
+nmm: 10
+
+
+values-> m: 2 n: 4
+indices->
+npn: 8
+nmn: 4
+npm: 22
+nmm: 18
+
+
+values-> m: 2 n: 5
+indices->
+npn: 8
+nmn: 4
+npm: 32
+nmm: 28
+
+
+values-> m: 2 n: 6
+indices->
+npn: 8
+nmn: 4
+npm: 44
+nmm: 40
+
+
+values-> m: 2 n: 7
+indices->
+npn: 8
+nmn: 4
+npm: 58
+nmm: 54
+
+
+values-> m: 2 n: 8
+indices->
+npn: 8
+nmn: 4
+npm: 74
+nmm: 70
+
+
+values-> m: 2 n: 9
+indices->
+npn: 8
+nmn: 4
+npm: 92
+nmm: 88
+
+
+values-> m: 3 n: 4
+indices->
+npn: 15
+nmn: 9
+npm: 23
+nmm: 17
+
+
+values-> m: 3 n: 5
+indices->
+npn: 15
+nmn: 9
+npm: 33
+nmm: 27
+
+
+values-> m: 3 n: 6
+indices->
+npn: 15
+nmn: 9
+npm: 45
+nmm: 39
+
+
+values-> m: 3 n: 7
+indices->
+npn: 15
+nmn: 9
+npm: 59
+nmm: 53
+
+
+values-> m: 3 n: 8
+indices->
+npn: 15
+nmn: 9
+npm: 75
+nmm: 69
+
+
+values-> m: 3 n: 9
+indices->
+npn: 15
+nmn: 9
+npm: 93
+nmm: 87
+
+
+values-> m: 4 n: 5
+indices->
+npn: 24
+nmn: 16
+npm: 34
+nmm: 26
+
+
+values-> m: 4 n: 6
+indices->
+npn: 24
+nmn: 16
+npm: 46
+nmm: 38
+
+
+values-> m: 4 n: 7
+indices->
+npn: 24
+nmn: 16
+npm: 60
+nmm: 52
+
+
+values-> m: 4 n: 8
+indices->
+npn: 24
+nmn: 16
+npm: 76
+nmm: 68
+
+
+values-> m: 4 n: 9
+indices->
+npn: 24
+nmn: 16
+npm: 94
+nmm: 86
+
+
+values-> m: 5 n: 6
+indices->
+npn: 35
+nmn: 25
+npm: 47
+nmm: 37
+
+
+values-> m: 5 n: 7
+indices->
+npn: 35
+nmn: 25
+npm: 61
+nmm: 51
+
+
+values-> m: 5 n: 8
+indices->
+npn: 35
+nmn: 25
+npm: 77
+nmm: 67
+
+
+values-> m: 5 n: 9
+indices->
+npn: 35
+nmn: 25
+npm: 95
+nmm: 85
+
+
+values-> m: 6 n: 7
+indices->
+npn: 48
+nmn: 36
+npm: 62
+nmm: 50
+
+
+values-> m: 6 n: 8
+indices->
+npn: 48
+nmn: 36
+npm: 78
+nmm: 66
+
+
+values-> m: 6 n: 9
+indices->
+npn: 48
+nmn: 36
+npm: 96
+nmm: 84
+
+
+values-> m: 7 n: 8
+indices->
+npn: 63
+nmn: 49
+npm: 79
+nmm: 65
+
+
+values-> m: 7 n: 9
+indices->
+npn: 63
+nmn: 49
+npm: 97
+nmm: 83
+
+
+values-> m: 8 n: 9
+indices->
+npn: 80
+nmn: 64
+npm: 98
+nmm: 82
+
+
+values-> m: 0 n: 1
+indices->
+npn: 0
+nmn: 0
+npm: 2
+nmm: 2
+
+
+values-> m: 0 n: 2
+indices->
+npn: 0
+nmn: 0
+npm: 6
+nmm: 6
+
+
+values-> m: 0 n: 3
+indices->
+npn: 0
+nmn: 0
+npm: 12
+nmm: 12
+
+
+values-> m: 0 n: 4
+indices->
+npn: 0
+nmn: 0
+npm: 20
+nmm: 20
+
+
+values-> m: 0 n: 5
+indices->
+npn: 0
+nmn: 0
+npm: 30
+nmm: 30
+
+
+values-> m: 0 n: 6
+indices->
+npn: 0
+nmn: 0
+npm: 42
+nmm: 42
+
+
+values-> m: 0 n: 7
+indices->
+npn: 0
+nmn: 0
+npm: 56
+nmm: 56
+
+
+values-> m: 0 n: 8
+indices->
+npn: 0
+nmn: 0
+npm: 72
+nmm: 72
+
+
+values-> m: 0 n: 9
+indices->
+npn: 0
+nmn: 0
+npm: 90
+nmm: 90
+
+
+values-> m: 1 n: 2
+indices->
+npn: 3
+nmn: 1
+npm: 7
+nmm: 5
+
+
+values-> m: 1 n: 3
+indices->
+npn: 3
+nmn: 1
+npm: 13
+nmm: 11
+
+
+values-> m: 1 n: 4
+indices->
+npn: 3
+nmn: 1
+npm: 21
+nmm: 19
+
+
+values-> m: 1 n: 5
+indices->
+npn: 3
+nmn: 1
+npm: 31
+nmm: 29
+
+
+values-> m: 1 n: 6
+indices->
+npn: 3
+nmn: 1
+npm: 43
+nmm: 41
+
+
+values-> m: 1 n: 7
+indices->
+npn: 3
+nmn: 1
+npm: 57
+nmm: 55
+
+
+values-> m: 1 n: 8
+indices->
+npn: 3
+nmn: 1
+npm: 73
+nmm: 71
+
+
+values-> m: 1 n: 9
+indices->
+npn: 3
+nmn: 1
+npm: 91
+nmm: 89
+
+
+values-> m: 2 n: 3
+indices->
+npn: 8
+nmn: 4
+npm: 14
+nmm: 10
+
+
+values-> m: 2 n: 4
+indices->
+npn: 8
+nmn: 4
+npm: 22
+nmm: 18
+
+
+values-> m: 2 n: 5
+indices->
+npn: 8
+nmn: 4
+npm: 32
+nmm: 28
+
+
+values-> m: 2 n: 6
+indices->
+npn: 8
+nmn: 4
+npm: 44
+nmm: 40
+
+
+values-> m: 2 n: 7
+indices->
+npn: 8
+nmn: 4
+npm: 58
+nmm: 54
+
+
+values-> m: 2 n: 8
+indices->
+npn: 8
+nmn: 4
+npm: 74
+nmm: 70
+
+
+values-> m: 2 n: 9
+indices->
+npn: 8
+nmn: 4
+npm: 92
+nmm: 88
+
+
+values-> m: 3 n: 4
+indices->
+npn: 15
+nmn: 9
+npm: 23
+nmm: 17
+
+
+values-> m: 3 n: 5
+indices->
+npn: 15
+nmn: 9
+npm: 33
+nmm: 27
+
+
+values-> m: 3 n: 6
+indices->
+npn: 15
+nmn: 9
+npm: 45
+nmm: 39
+
+
+values-> m: 3 n: 7
+indices->
+npn: 15
+nmn: 9
+npm: 59
+nmm: 53
+
+
+values-> m: 3 n: 8
+indices->
+npn: 15
+nmn: 9
+npm: 75
+nmm: 69
+
+
+values-> m: 3 n: 9
+indices->
+npn: 15
+nmn: 9
+npm: 93
+nmm: 87
+
+
+values-> m: 4 n: 5
+indices->
+npn: 24
+nmn: 16
+npm: 34
+nmm: 26
+
+
+values-> m: 4 n: 6
+indices->
+npn: 24
+nmn: 16
+npm: 46
+nmm: 38
+
+
+values-> m: 4 n: 7
+indices->
+npn: 24
+nmn: 16
+npm: 60
+nmm: 52
+
+
+values-> m: 4 n: 8
+indices->
+npn: 24
+nmn: 16
+npm: 76
+nmm: 68
+
+
+values-> m: 4 n: 9
+indices->
+npn: 24
+nmn: 16
+npm: 94
+nmm: 86
+
+
+values-> m: 5 n: 6
+indices->
+npn: 35
+nmn: 25
+npm: 47
+nmm: 37
+
+
+values-> m: 5 n: 7
+indices->
+npn: 35
+nmn: 25
+npm: 61
+nmm: 51
+
+
+values-> m: 5 n: 8
+indices->
+npn: 35
+nmn: 25
+npm: 77
+nmm: 67
+
+
+values-> m: 5 n: 9
+indices->
+npn: 35
+nmn: 25
+npm: 95
+nmm: 85
+
+
+values-> m: 6 n: 7
+indices->
+npn: 48
+nmn: 36
+npm: 62
+nmm: 50
+
+
+values-> m: 6 n: 8
+indices->
+npn: 48
+nmn: 36
+npm: 78
+nmm: 66
+
+
+values-> m: 6 n: 9
+indices->
+npn: 48
+nmn: 36
+npm: 96
+nmm: 84
+
+
+values-> m: 7 n: 8
+indices->
+npn: 63
+nmn: 49
+npm: 79
+nmm: 65
+
+
+values-> m: 7 n: 9
+indices->
+npn: 63
+nmn: 49
+npm: 97
+nmm: 83
+
+
+values-> m: 8 n: 9
+indices->
+npn: 80
+nmn: 64
+npm: 98
+nmm: 82
+Rel. L2 Error (p)    : 9.77517e-04 
+Rel. L2 Error (F)    : 1.08588e-02 
+➜  2_kernels git:(learning) ✗ 

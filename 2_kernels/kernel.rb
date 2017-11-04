@@ -22,6 +22,12 @@ module ExaFMM
       def eval_multipole rho, alpha, beta, ynm, ynm_theta
         x = cos(alpha)
         y = sin(alpha)
+
+        # unoptimized code examples based on my understanding
+        0.upto(P) do |m|
+          (m+1).upto do |n|
+          end
+        end
       end
 
       def p2m cells, index

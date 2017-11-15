@@ -37,5 +37,14 @@ module ExaFMM
         @next = nil
       end
     end
+
+    def factorial n
+      return 1 if n == 0
+      m = 1
+      1.upto(n) do |i|
+        m *= i
+      end
+      m
+    end
   end
 end

@@ -4,7 +4,7 @@
 using namespace exafmm;
 
 int main(int argc, char ** argv) {
-  P = 10;
+  P = atoi(argv[1]);
   initKernel();
 
   //! P2M

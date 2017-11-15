@@ -21,7 +21,6 @@ namespace exafmm {
   }
 
   void sph2cart(real_t r, real_t theta, real_t phi, const vec3 & spherical, vec3 & cartesian) {
-    cartesian[0] = std::sin(theta) * std::cos(phi) * spherical[0]
       + std::cos(theta) * std::cos(phi) / r * spherical[1]
       - std::sin(phi) / r / std::sin(theta) * spherical[2];
     cartesian[1] = std::sin(theta) * std::sin(phi) * spherical[0]
@@ -31,13 +30,15 @@ namespace exafmm {
       - std::sin(theta) / r * spherical[1];
   }
 
+  // note that it is (Ynm*rho^(n+1))/Amn that is stored in Ynm array and not Ynm itself.
+  // This is highly cryptic optimized code.
   void evalMultipole(real_t rho, real_t alpha, real_t beta, complex_t * Ynm, complex_t * YnmTheta) {
     real_t x = std::cos(alpha);
     real_t y = std::sin(alpha);
     real_t invY = y == 0 ? 0 : 1 / y;
     real_t fact = 1;
     real_t pn = 1;
-    real_t rhom = 1;
+    real_t rhom = 1; // rho^m
     // The last (exponential) term in the mYn sph. harmonics equation.
     //  This is the term that depends on the phi or the longitudinal angle.
     complex_t ei = std::exp(I * beta);
@@ -51,6 +52,8 @@ namespace exafmm {
     for (int m=0; m<P; m++) { // P -> order of expansions
       real_t p = pn; // p -> mP(n+1) value of Legendre recurrence
 
+      // the indexing happens in a pyramid structure.
+      // the terms have symmetry so we only need calculate one half of the pyramid.
       int npn = m * m + 2 * m; // This is Yn n
       int nmn = m * m;         // This is Yn -n
 
@@ -60,14 +63,18 @@ namespace exafmm {
       p = x * (2 * m + 1) * p1; // how is it decided that p should be initialized to this value?
       YnmTheta[npn] = rhom * (p - (m + 1) * x * p1) * invY * eim;
       rhom *= rho;
-      real_t rhon = rhom;
+      real_t rhon = rhom; // rho^n
       // It goes from m+1 to P because it a way of optimizing the summation terms.
-      //  This is also the reason why 'm' occurs in the outer loop.
+      //  This is also the reason why 'm' occurs in the outer loop (since the summation terms are being swapped)
+      //  The computations that happens in the outer loop is there mostly for the n=m case. Since this case
+      //  occurs only sometimes, we can compute it just once.
       for (int n=m+1; n<P; n++) {      // n -> degree of spherical harmonic
         int npm = n * n + n + m; // This is Yn m
         int nmm = n * n + n - m; // This is Yn -m
-        /* std::cout << "\n\nvalues-> m: " << m << " n: " << n << std::endl; */
-        /* std::cout << "indices->\n" << "npn: " << npn << "\nnmn: " << nmn << "\nnpm: " << npm << "\nnmm: " << nmm << std::endl; */
+        // I think that this is there since Anm in the style of laplace.h
+        // is there only in M2L and L2L so this term and the rhom /=
+        // thing below is actually just an optimization that makes Anm
+        // redundant in this eq and useful in M2L and L2L.
         rhon /= -(n + m);
         Ynm[npm] = rhon * p * eim;
         Ynm[nmm] = std::conj(Ynm[npm]);
@@ -75,11 +82,10 @@ namespace exafmm {
         p1 = p;
         p = (x * (2 * n + 1) * p1 - (n + m) * p2) / (n - m + 1);         // this is that recurrence relation
         YnmTheta[npm] = rhon * ((n - m + 1) * p - (n + 1) * x * p1) * invY * eim;
-        // see the Multipole expansion equation. You'll see that rho is raised to a power n. This is needs to be
-        //   done so that it will be raised fully by the time the entire summation is done.
         rhon *= rho;
       }
       rhom /= -(2 * m + 2) * (2 * m + 1);
+      // fact is the factorial term. y is the sin(alpha) since sqrt((1-cos(alpha)^2)) can be written as y.
       pn = -pn * fact * y;  // pn -> Eq (8) in the prof. yokota paper. mPm.
       fact += 2;
       eim *= ei;
@@ -160,8 +166,8 @@ namespace exafmm {
       evalMultipole(rho, alpha, -beta, Ynm, YnmTheta);
       for (int n=0; n<P; n++) {
         for (int m=0; m<=n; m++) {
-          int nm  = n * n + n + m;
-          int nms = n * (n + 1) / 2 + m;
+          int nm  = n * n + n + m; // -n .. n
+          int nms = n * (n + 1) / 2 + m; // 0..n
           C->M[nms] += B->q * Ynm[nm];
         }
       }
